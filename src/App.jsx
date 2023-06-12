@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Navigation from "./components/Navigation";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import { publicRoutes, privateRoutes, ProtectedRoute } from "./routing/routes";
 import ErrorPage from "./pages/ErrorPage";
 import { firebaseConfig } from "./firebase";
