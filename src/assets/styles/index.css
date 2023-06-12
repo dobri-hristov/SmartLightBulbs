@@ -1,0 +1,97 @@
+.auth-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.auth-form {
+  width: 420px;
+  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+}
+
+.auth-form-title {
+  text-align: center;
+  font-size: 24px;
+  color: rgb(34, 34, 34);
+  font-weight: 800;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(34, 34, 34);
+}
+
+.shadow {
+  box-shadow: rgb(0 0 0 / 16%) 0px 0px 10px;
+}
+
+.blue-shadow {
+  box-shadow: 0px 0px 10px 2px rgba(11, 94, 215, 1);
+}
+
+.dark-shadow {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+.page {
+  width: 85%;
+  margin: 30px auto;
+}
+
+.range-input {
+  background: linear-gradient(
+    to right,
+    #ee9c29,
+    #f3cb1b,
+    #eee94f,
+    #f0eda4,
+    #eeebcb,
+    #f7f8fb,
+    #e3f2f9,
+    #c6e0ed,
+    #a6dcf6,
+    #5fc7ed
+  );
+}
+
+.homepage {
+  background-image: url("../images/homeView.jpg");
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.device-buttons-actions {
+  padding: 2px 1rem;
+}
+
+.list-icons:hover {
+  color: #0b5ed7;
+}
+
+/* paginator start*/
+.page-item .page-link {
+  color: black;
+}
+
+.active > .page-link {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+}
+.react-bootstrap-table-page-btns-ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row .react-bootstrap-table-pagination {
+  text-align: start;
+}
+/* paginator end*/
+
+.react-bootstrap-table {
+  font-size: 0.8rem;
+}
