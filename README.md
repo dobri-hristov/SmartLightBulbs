@@ -1,6 +1,7 @@
 # About  SmartLightBulbs
 
 Check status, activity and remaining life time of your smart light bulbs in home, office or place of your choice.
+
 Dependencies: react, redux, redux-saga, firebase, bootstrap
 
 ## Running The Project
