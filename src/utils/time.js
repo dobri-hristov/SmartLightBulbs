@@ -2,10 +2,10 @@ import { formatNumber } from "./common";
 
 export const timeLeftContainer = (time) => {
   time = Number(time);
-  var h = Math.floor(time / 3600);
-  var days = Math.floor(h / 24);
-  var m = Math.floor((time % 3600) / 60);
-  var s = Math.floor((time % 3600) % 60);
+  const h = Math.floor(time / 3600);
+  const days = Math.floor(h / 24);
+  const m = Math.floor((time % 3600) / 60);
+  const s = Math.floor((time % 3600) % 60);
 
   return (
     <div className="text-center ">

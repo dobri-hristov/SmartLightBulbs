@@ -22,9 +22,9 @@ const Devices = ({ title }) => {
   const [showModal, setShowModal] = useState(false);
   const [group, setGroup] = useState(getUserDefaultGroup(DEFAULT_NAMES.GROUP));
   const [allGroups, setAllGroups] = useState([]);
-  const [devices, setDevices] = useState([]);
+  const [devices, setDevices] = useState();
   const [allDevices, setAllDevices] = useState([]);
-  const { user, isAuth } = useSelector((state) => state.auth);
+  const { user, isAuth, init } = useSelector((state) => state.auth);
   const [view, setView] = useState(
     getUserDefaultView(DEFAULT_NAMES.VIEW) || DEFAULT_NAMES.COLUMNS
   );
@@ -33,8 +33,8 @@ const Devices = ({ title }) => {
   );
 
   useEffect(() => {
-    setDevices(false);
-    setAllDevices(false);
+    // setDevices(false);
+    // setAllDevices(false);
     user &&
       onValue(ref(db, `${REFS.DEVICES}/${user.userId}`), (snapshot) => {
         setDevices([]);
@@ -83,7 +83,7 @@ const Devices = ({ title }) => {
           </Row>
         </Col>
       </Row>
-      {isAuth && (
+      {isAuth && devices &&(
         <>
           <FilterDevicesRow
             devices={devices}

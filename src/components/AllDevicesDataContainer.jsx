@@ -17,7 +17,7 @@ const AllDevicesDataContainer = ({
 }) => {
   return (
     <>
-      {devices && (
+      {devices.length > 0 && (
         <>
           {view === DEFAULT_NAMES.COLUMNS && (
             <Row xs={1} sm={2} md={3} lg={4} xl={5} className="g-2 mt-1">

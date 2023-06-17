@@ -31,7 +31,8 @@ const AddDeviceForm = ({ userId, setShowModal }) => {
       validationSchema={addDeviceSchema}
       validateOnChange={firstSubmit}
       onSubmit={(data) => {
-        const { name, group } = data;
+        const name = data.name.trim();
+        const group = data.group.trim();
         getAllDevicesOnce(userId).then((devices) =>
           checkDeviceExist(devices, name, group)
             ? createExistingDeviceToast(name, group)

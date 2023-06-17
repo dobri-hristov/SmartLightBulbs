@@ -16,17 +16,17 @@ export const updateDevice = (userId, device) => {
     timeOn,
     timeOnPeriods,
   } = device;
-  const period = { start: timeOn, stop: state === true && new Date() };
-  state === true && timeOnPeriods && timeOnPeriods.push({ ...period });
+  const period = { start: timeOn, stop: state && new Date() };
+  state && timeOnPeriods && timeOnPeriods.push({ ...period });
   const postData = {
     group,
     name,
     watts,
     lumens,
     temperature,
-    hours: state !== false ? setNewHours(hours, timeOn) : hours,
+    hours: state ? setNewHours(hours, timeOn) : hours,
     state: !state,
-    timeOn: state === false ? new Date() : 0,
+    timeOn: !state ? new Date() : 0,
     timeOnPeriods: timeOnPeriods || (state && [{ ...period }]),
   };
   update(ref(db, `${REFS.DEVICES}/${userId}/${name}_${group}`), {

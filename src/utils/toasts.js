@@ -19,9 +19,7 @@ export const changeStateToast = (name, state) => {
         {state ? " ON" : " OFF"}
       </strong>
     </span>,
-    {
-      ...defaultData,
-    }
+    { ...defaultData }
   );
 };
 
@@ -31,9 +29,7 @@ export const deleteDeviceToast = (name) => {
       Device <strong>{name}</strong> was successfully
       <strong> Deleted</strong>
     </span>,
-    {
-      ...defaultData,
-    }
+    { ...defaultData }
   );
 };
 export const createDeviceToast = (name) => {
@@ -54,8 +50,6 @@ export const createExistingDeviceToast = (name, group) => {
       Device <strong>{name}</strong> alredy exist in group
       <strong> {group}</strong>. Change name or group
     </span>,
-    {
-      ...defaultData,
-    }
+    { ...defaultData }
   );
 };
