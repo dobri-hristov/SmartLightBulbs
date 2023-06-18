@@ -33,7 +33,10 @@ const convertMiliseconds = (miliseconds) => {
 const timeOnFormater = (row) => {
   const startTime = new Date(row.start).getTime();
   const stopTime = new Date(row.stop).getTime();
-  return startTime && stopTime && convertMiliseconds(stopTime - startTime);
+
+  return startTime && !isNaN(stopTime)
+    ? convertMiliseconds(stopTime - startTime)
+    : "0d : 00h : 00m : 00s";
 };
 
 const timeFormater = (time) => {
