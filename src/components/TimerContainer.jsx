@@ -7,7 +7,7 @@ const TimerContainer = ({ state, timeOn }) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      state !== false && setTime(generateHoursOn(timeOn));
+      state && setTime(generateHoursOn(timeOn));
     }, 1000);
     return () => {
       clearInterval(intervalId);

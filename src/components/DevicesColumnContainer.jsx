@@ -20,10 +20,6 @@ const DevicesColumnContainer = ({ device, userId }) => {
     setShowDeleteModal(false);
   };
 
-  const handleChange = () => {
-    updateDevice(userId, device);
-  };
-
   return (
     <>
       <Card className={`shadow ${state && "border-primary"}`}>
@@ -34,12 +30,12 @@ const DevicesColumnContainer = ({ device, userId }) => {
           <Button
             variant={state ? "primary" : "outline-primary"}
             className={`${state && "blue-shadow"} p-4 rounded-pill`}
-            onClick={() => handleChange()}
+            onClick={() => updateDevice(userId, device)}
           >
             {state ? <BsLightbulb size={40} /> : <BsLightbulbOff size={40} />}
           </Button>
           <div className="mt-3">
-            <BigDataPiece text="Hours On">
+            <BigDataPiece text="Hours ON">
               {typeof timeOn !== "undefined" && timeOn !== 0 ? (
                 <TimerContainer state={state} timeOn={timeOn} />
               ) : (
@@ -86,7 +82,10 @@ const DevicesColumnContainer = ({ device, userId }) => {
         hide={() => setShowDeleteModal(false)}
       >
         Are you sure you want to delete{" "}
-        <strong className="text-danger">{name}_{group}</strong> ?
+        <strong className="text-danger">
+          {name}_{group}
+        </strong>{" "}
+        ?
       </CustomModal>
     </>
   );

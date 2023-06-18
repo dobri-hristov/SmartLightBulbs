@@ -36,10 +36,6 @@ const SingleDeviceDataContainer = ({ device, userId }) => {
     timeOnPeriods,
   } = device;
 
-  const handleChange = () => {
-    updateDevice(userId, device);
-  };
-
   return (
     <Container className="py-4">
       <Row className="mb-3">
@@ -55,7 +51,7 @@ const SingleDeviceDataContainer = ({ device, userId }) => {
               <Button
                 variant={state ? "primary" : "outline-primary"}
                 className={`${state && "blue-shadow"} p-5 rounded-pill mb-3`}
-                onClick={() => handleChange()}
+                onClick={() => updateDevice(userId, device)}
               >
                 {state ? (
                   <BsLightbulb size={70} />
@@ -63,7 +59,7 @@ const SingleDeviceDataContainer = ({ device, userId }) => {
                   <BsLightbulbOff size={70} />
                 )}
               </Button>
-              <BigDataPiece text="Hours On">
+              <BigDataPiece text="Hours ON">
                 {typeof timeOn !== "undefined" && timeOn !== 0 ? (
                   <TimerContainer state={state} timeOn={timeOn} />
                 ) : (

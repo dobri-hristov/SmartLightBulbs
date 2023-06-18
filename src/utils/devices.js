@@ -179,7 +179,7 @@ export const generateColumns = (
     },
     {
       dataField: "hoursOn",
-      text: "Hours On",
+      text: "Hours ON",
       formatter: (cell, row) => {
         return formatHoursOn(row);
       },
@@ -198,7 +198,7 @@ export const generateColumns = (
     },
     {
       dataField: "hours",
-      text: "Timeleft",
+      text: "Timeleft status",
       formatter: (cell, row) => {
         return formatTimeLeft(row);
       },

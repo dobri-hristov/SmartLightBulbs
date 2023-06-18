@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, OverlayTrigger, Popover, Row, Col } from "react-bootstrap";
+import { Button, OverlayTrigger, Popover, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { MdOutlineInfo } from "react-icons/md";
 import { AiOutlineDelete, AiOutlineFieldTime } from "react-icons/ai";
@@ -19,19 +19,18 @@ export const DetailsButton = ({ path }) => {
 };
 
 export const DeleteButton = ({ click }) => {
-  const handleclick = () => click();
   return (
     <Button
       variant="outline-danger w-100"
       title="delete device"
-      onClick={() => handleclick()}
+      onClick={() => click()}
     >
       <AiOutlineDelete size={20} color="black" />
     </Button>
   );
 };
 
-export const TimeLeftButton = ({ currentHours, initialHours }) => {
+export const TimeLeftButton = ({ currentHours }) => {
   return (
     <OverlayTrigger
       key="top"
@@ -39,12 +38,11 @@ export const TimeLeftButton = ({ currentHours, initialHours }) => {
       overlay={
         <Popover className="dark-shadow">
           <Popover.Header as="h3">
-            <Row className="align-items-center">
-              <Col className="px-1">Timeleft</Col>
-              <Col className="text-end px-1"></Col>
-            </Row>
+            <Row className="px-1">Timeleft</Row>
           </Popover.Header>
-          <Popover.Body>{timeLeftContainer(currentHours)}</Popover.Body>
+          <Popover.Body className="p-2">
+            {timeLeftContainer(currentHours)}
+          </Popover.Body>
         </Popover>
       }
     >
