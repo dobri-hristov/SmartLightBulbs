@@ -50,7 +50,6 @@ export const generateColumns = () => {
     {
       dataField: "id",
       text: "#",
-      sort: true,
       formatter: (cell, row, rowIndex) => {
         return rowIndex + 1;
       },
@@ -75,9 +74,8 @@ export const generateColumns = () => {
       },
     },
     {
-      dataField: "",
+      dataField: "total",
       text: "Total",
-      sort: true,
       formatter: (cell, row) => {
         return timeOnFormater(row);
       },
