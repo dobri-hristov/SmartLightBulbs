@@ -113,7 +113,7 @@ const Devices = ({ title }) => {
           <AddDeviceForm userId={user.userId} setShowModal={setShowModal} />
         ) : (
           <div>
-            First you need to login to your account{" "}
+            Log in to your account{" "}
             <Button variant="primary px-2" as={Link} to="/login">
               Click here
             </Button>
