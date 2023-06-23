@@ -8,7 +8,6 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { registerSchema } from "../utils/yup";
 import { REFS } from "../utils/constants";
 import * as formik from "formik";
-import Loading from "../components/common/Loading";
 
 const Auth = () => {
   const [authMode, setAuthMode] = useState("signin");
@@ -183,7 +182,7 @@ const Auth = () => {
                   className="w-100 mt-3"
                 >
                   {loading ? (
-                    <Loading />
+                    <strong className="text-muted">Loading...</strong>
                   ) : authMode === "signin" ? (
                     "Login"
                   ) : (

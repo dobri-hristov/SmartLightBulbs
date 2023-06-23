@@ -12,12 +12,10 @@ const App = () => {
   initializeApp(firebaseConfig);
   const { isAuth, init } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    checkAuth();
-  }, [isAuth]);
+  useEffect(() => checkAuth(), [isAuth]);
 
   return (
-    <div>
+    <div style={{ display: init ? "block" : "none" }}>
       <Router>
         <Navigation />
         {init && (
