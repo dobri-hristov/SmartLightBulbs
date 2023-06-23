@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/SmartLightBulbs/static/css/main.8beba283.css",
-    "main.js": "/SmartLightBulbs/static/js/main.a3c9a6dd.js",
+    "main.js": "/SmartLightBulbs/static/js/main.caa21435.js",
     "static/media/homeView.jpg": "/SmartLightBulbs/static/media/homeView.c6bacb3c9dba9491df79.jpg",
     "index.html": "/SmartLightBulbs/index.html",
     "main.8beba283.css.map": "/SmartLightBulbs/static/css/main.8beba283.css.map",
-    "main.a3c9a6dd.js.map": "/SmartLightBulbs/static/js/main.a3c9a6dd.js.map"
+    "main.caa21435.js.map": "/SmartLightBulbs/static/js/main.caa21435.js.map"
   },
   "entrypoints": [
     "static/css/main.8beba283.css",
-    "static/js/main.a3c9a6dd.js"
+    "static/js/main.caa21435.js"
   ]
 }
