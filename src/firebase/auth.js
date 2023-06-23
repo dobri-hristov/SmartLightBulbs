@@ -62,7 +62,7 @@ export const checkAuth = () => {
   const auth = getAuth();
   onAuthStateChanged(auth, (user) => {
     user
-      ? store.dispatch(authActions.authRequest({ user }))
+      ? store.dispatch(authActions.loginRequest({ user }))
       : store.dispatch(authActions.logoutRequest());
   });
 };

@@ -10,7 +10,6 @@ export const publicRoutes = [
     path: "/",
     element: Home,
   },
-
   {
     path: "/login",
     element: Auth,

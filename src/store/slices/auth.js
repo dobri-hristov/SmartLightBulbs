@@ -16,8 +16,8 @@ const authSlice = createSlice({
       user: null,
       init: true,
     }),
-    authRequest: (state) => state,
-    authSuccess: (state, { payload: { user } }) => ({
+    loginRequest: (state) => state,
+    loginSuccess: (state, { payload: { user } }) => ({
       isAuth: true,
       user,
       init: true,

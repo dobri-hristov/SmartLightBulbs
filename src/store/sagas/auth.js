@@ -3,7 +3,7 @@ import { authActions } from "../slices/auth";
 import { toast } from "react-toastify";
 import { loadingActions } from "../slices/loading";
 
-function* authRequest({ payload: { user } }) {
+function* loginRequest({ payload: { user } }) {
   try {
     yield put(loadingActions.loadingOn());
     const userData = {
@@ -11,8 +11,8 @@ function* authRequest({ payload: { user } }) {
       userId: user.uid,
       email: user.email,
     };
-    yield put(authActions.authSuccess({ user: userData }));
-     yield put(loadingActions.loadingOff());
+    yield put(authActions.loginSuccess({ user: userData }));
+    yield put(loadingActions.loadingOff());
   } catch (e) {
     yield put(authActions.logoutRequest());
   }
@@ -29,8 +29,8 @@ function* logoutRequest() {
 }
 
 function* watchAuthSagas() {
+  yield takeEvery(authActions.loginRequest, loginRequest);
   yield takeEvery(authActions.logoutRequest, logoutRequest);
-  yield takeEvery(authActions.authRequest, authRequest);
 }
 
 const authSagas = [fork(watchAuthSagas)];
