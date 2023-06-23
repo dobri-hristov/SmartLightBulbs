@@ -8,14 +8,13 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { registerSchema } from "../utils/yup";
 import { REFS } from "../utils/constants";
 import * as formik from "formik";
-import { useLoading } from "../hooks/useLoading";
 import Loading from "../components/common/Loading";
 
 const Auth = () => {
   const [authMode, setAuthMode] = useState("signin");
   const isAuth = useSelector((state) => state.auth.isAuth);
+  const loading = useSelector((state) => state.loading.auth);
   const [firstSubmit, isFirstSubmit] = useState(false);
-  const { loading } = useLoading();
   const { Formik } = formik;
 
   const handleSubmit = (data) => {
@@ -44,9 +43,7 @@ const Auth = () => {
     >
       {({ handleSubmit, handleChange, values, errors }) => (
         <div className="auth-form-container">
-          {loading ? (
-            <Loading />
-          ) : (
+          {!isAuth ? (
             <Form
               noValidate
               onSubmit={handleSubmit}
@@ -185,12 +182,19 @@ const Auth = () => {
                   onClick={() => isFirstSubmit(true)}
                   className="w-100 mt-3"
                 >
-                  {authMode === "signin" ? "Login" : "Registration"}
+                  {loading ? (
+                    <Loading />
+                  ) : authMode === "signin" ? (
+                    "Login"
+                  ) : (
+                    "Registration"
+                  )}
                 </Button>
               </div>
             </Form>
+          ) : (
+            <Navigate to={`/${REFS.DEVICES}`} />
           )}
-          {isAuth && !loading && <Navigate to={`/${REFS.DEVICES}`} />}
         </div>
       )}
     </Formik>

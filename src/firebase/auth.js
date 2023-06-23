@@ -9,7 +9,8 @@ import {
 import { toast } from "react-toastify";
 import store from "../store";
 import { authActions } from "../store/slices/auth";
-import { DEFAULT_NAMES } from "../utils/constants";
+import { loadingActions } from "../store/slices/loading";
+import { DEFAULT_NAMES, LOADING_COMPONENTS } from "../utils/constants";
 import { getUsername } from "../utils/user";
 
 const putUserDataToLocalstorage = () => {
@@ -26,19 +27,27 @@ const putUserDataToLocalstorage = () => {
 export const createUser = (email, password, username) => {
   localStorage.setItem(DEFAULT_NAMES.USER, JSON.stringify({ username }));
   const auth = getAuth();
+  store.dispatch(loadingActions.loadingOn(LOADING_COMPONENTS.AUTH));
   createUserWithEmailAndPassword(auth, email, password)
     .then(() => updateProfile(auth.currentUser, { displayName: username }))
     .then(() => putUserDataToLocalstorage())
     .then(() => toast.success(`Welcome, ${username}!`))
-    .catch(() => toast.error(`User with this email already exists`));
+    .catch(() => toast.error(`User with this email already exists`))
+    .finally(() =>
+      store.dispatch(loadingActions.loadingOff(LOADING_COMPONENTS.AUTH))
+    );
 };
 
 export const loginUser = (email, password) => {
   const auth = getAuth();
+  store.dispatch(loadingActions.loadingOn(LOADING_COMPONENTS.AUTH));
   signInWithEmailAndPassword(auth, email, password)
     .then(() => putUserDataToLocalstorage())
     .then(() => toast.success(`Welcome back, ${auth.currentUser.displayName}!`))
-    .catch(() => toast.error(`Incorrect username or password`));
+    .catch(() => toast.error(`Incorrect username or password`))
+    .finally(() =>
+      store.dispatch(loadingActions.loadingOff(LOADING_COMPONENTS.AUTH))
+    );
 };
 
 export const logoutUser = () => {
