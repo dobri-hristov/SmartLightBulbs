@@ -7,6 +7,7 @@ import { firebaseConfig } from "./firebase";
 import { checkAuth } from "./firebase/auth";
 import { useSelector } from "react-redux";
 import { initializeApp } from "firebase/app";
+import LoadingPage from "./pages/LoadingPage";
 
 const App = () => {
   initializeApp(firebaseConfig);
@@ -15,10 +16,10 @@ const App = () => {
   useEffect(() => checkAuth(), [isAuth]);
 
   return (
-    <div style={{ display: init ? "block" : "none" }}>
-      <Router>
-        <Navigation />
-        {init && (
+    <div>
+      {init ? (
+        <Router>
+          <Navigation />
           <Routes>
             {publicRoutes.map((route) => (
               <Route
@@ -42,8 +43,10 @@ const App = () => {
             ))}
             <Route path="*" element={<ErrorPage />} />
           </Routes>
-        )}
-      </Router>
+        </Router>
+      ) : (
+        <LoadingPage />
+      )}
     </div>
   );
 };

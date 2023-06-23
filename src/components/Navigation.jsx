@@ -6,7 +6,6 @@ import { HiOutlineLogin, HiOutlineLogout } from "react-icons/hi";
 import { logoutUser } from "../firebase/auth";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useLoading } from "../hooks/useLoading";
 import { getUsername } from "../utils/user";
 
 const Navigation = () => {
@@ -14,7 +13,6 @@ const Navigation = () => {
   const isHomePage = location.pathname === "/";
   const { isAuth, user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
-  const { loading } = useLoading();
 
   const handleLogout = () => {
     navigate("/");
@@ -43,27 +41,25 @@ const Navigation = () => {
               Devices
             </Nav.Link>
           </Nav>
-          {!loading && (
-            <Nav className="align-items-baseline">
-              {!isAuth ? (
-                <Nav.Link as={Link} to="/login" className="text-primary">
-                  Login <HiOutlineLogin />
+          <Nav className="align-items-baseline">
+            {!isAuth ? (
+              <Nav.Link as={Link} to="/login" className="text-primary">
+                Login <HiOutlineLogin />
+              </Nav.Link>
+            ) : (
+              <>
+                <span className="text-light mr-2">
+                  @{user.username || getUsername()}
+                </span>
+                <Nav.Link
+                  className="text-danger"
+                  onClick={() => handleLogout()}
+                >
+                  Logout <HiOutlineLogout />
                 </Nav.Link>
-              ) : (
-                <>
-                  <span className="text-light mr-2">
-                    @{user.username || getUsername()}
-                  </span>
-                  <Nav.Link
-                    className="text-danger"
-                    onClick={() => handleLogout()}
-                  >
-                    Logout <HiOutlineLogout />
-                  </Nav.Link>
-                </>
-              )}
-            </Nav>
-          )}
+              </>
+            )}
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

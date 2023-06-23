@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { Row, Col, Badge } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Loading from "../components/common/Loading";
 import { ref, onValue } from "firebase/database";
 import { db } from "../firebase";
 import { REFS } from "../utils/constants";
@@ -25,7 +24,7 @@ const Device = ({ title }) => {
 
   return (
     <div className="page">
-      {device ? (
+      {device && (
         <>
           <Row className="border-bottom align-items-center pb-2">
             <Col>
@@ -43,10 +42,6 @@ const Device = ({ title }) => {
           </Row>
           <SingleDeviceDataContainer device={device} userId={user.userId} />
         </>
-      ) : (
-        <div className="p-5 text-center">
-          <Loading />
-        </div>
       )}
     </div>
   );
