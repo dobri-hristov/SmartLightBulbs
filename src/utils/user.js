@@ -8,7 +8,7 @@ export const getUserDefaultView = (title) => {
 
   return defaultSelections && defaultSelections[user.userId]
     ? defaultSelections[user.userId][title]
-    : DEFAULT_NAMES.Columns;
+    : DEFAULT_NAMES.COLUMNS;
 };
 
 export const getUserDefaultGroup = (title) => {

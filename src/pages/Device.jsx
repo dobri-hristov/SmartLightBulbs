@@ -8,6 +8,7 @@ import { db } from "../firebase";
 import { REFS } from "../utils/constants";
 import SingleDeviceDataContainer from "../components/SingleDeviceDataContainer";
 import moment from "moment";
+import Aws from "../components/Aws";
 
 const Device = ({ title }) => {
   const { name } = useParams();
@@ -41,6 +42,7 @@ const Device = ({ title }) => {
             </Col>
           </Row>
           <SingleDeviceDataContainer device={device} userId={user.userId} />
+          <Aws />
         </>
       )}
     </div>

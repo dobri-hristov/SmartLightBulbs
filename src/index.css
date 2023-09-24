@@ -18,5 +18,6 @@ code {
 @import "./assets/styles/loading.scss";
 @import "react-toastify/dist/ReactToastify.css";
 @import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+@import "@iot-app-kit/components/styles.css";
 
 /* @import "@iot-app-kit/components/styles.css"; */
